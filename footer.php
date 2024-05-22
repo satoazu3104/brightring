@@ -62,13 +62,13 @@ function display_fixed_mobile_menu($phone_number)
 { ?>
   <div class="l-footer__fix sp js-fix-bottom">
     <a class="l-footer__fix--inner" href="tel:<?php echo esc_attr($phone_number); ?>">
-      <img class="lazyload block-media l-footer__fix--img" data-src="<?php echo esc_url(get_template_directory_uri() . '/dist/assets/images/common/icon-phone.webp'); ?>" alt="phone">
+      <img class="lazyload block-media l-footer__fix--img" data-src="/dist/assets/images/common/icon-phone.webp" alt="phone">
       <p class="c-text__title c-text--en c-text--white c-text--bold">
         <?php echo esc_html($phone_number); ?>
       </p>
     </a>
     <a class="l-footer__fix--inner" href="<?php echo esc_url(site_url('/contact/')); ?>" data-state="line">
-      <img class="lazyload block-media l-footer__fix--img" data-src="<?php echo esc_url(get_template_directory_uri() . '/dist/assets/images/common/icon-mail.webp'); ?>" alt="phone">
+      <img class="lazyload block-media l-footer__fix--img" data-src="/dist/assets/images/common/icon-mail.webp" alt="phone">
       <p class="c-text__title c-text--white c-text--bold">
         お問い合わせ
       </p>
