@@ -1,0 +1,382 @@
+@use 'sass:math';
+
+$button-width: fit-content;
+$button-height: fit-content;
+$arrow-circle-height: 16px;
+$arrow-circle-right-width: 40px;
+$button-circle-color: #E9EDEF;
+
+// 初期ポジション
+%arrow-position-initial {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform .3s ease;
+}
+
+%arrow-decoy-position-initial {
+  @extend %arrow-position-initial;
+  transform: translate(calc(-50% - #{$arrow-circle-right-width}), -50%);
+  z-index: 1;
+}
+
+// ホバースタイル
+@mixin button-hover($background: $color-main2, $color: $color-main) {
+  @include pc {
+
+    // background-color: $background;
+    p,
+    input {}
+
+    .c-button__after {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 50px rgba($color: $color-accent, $alpha: .3));
+    }
+
+    .c-button__before {}
+  }
+}
+
+%button-hover-normal {
+  @include button-hover();
+}
+
+%button-hover-main {
+  @include button-hover(white, $color-main);
+}
+
+%button-hover-mail {
+  @include button-hover(white, $color-main);
+}
+
+%button-hover-accent {
+  @include button-hover(white);
+}
+
+%button-hover-contact {
+  @include button-hover($color-accent, $color-accent);
+
+  @include pc {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 50px rgba($color: $color-accent, $alpha: .3));
+  }
+}
+
+%button-hover-white {
+  @include button-hover($color-accent, white);
+}
+
+%button-hover-simple {
+  @include button-hover($color-main2, $color-main);
+
+  .c-button__after {
+    background-color: $button-circle-color;
+
+    @include pc {
+      &::before {
+        transform: translate(calc(-50% + 26px), -50%);
+      }
+    }
+  }
+}
+
+%button-hover-scroll-down {
+  @include pc {
+    .c-button__after {
+      &::before {
+        transform: translate(-50%, calc(-50% + #{$arrow-circle-height}));
+      }
+    }
+  }
+}
+
+// ボタンのスタイル
+@mixin button-style($width: $button-width, $height: $button-height, $padding: 0 100px 0 32px, $border: 1px solid #fff, $background: white) {
+  width: $width;
+  height: $height;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+  transition: transform .3s ease, filter .3s ease;
+
+  @include sp {
+    max-width: 480px;
+    margin-left: auto;
+  }
+
+  .c-button {
+    transition: transform .3s ease;
+    color: $color-accent;
+
+    @include sp {
+      white-space: nowrap;
+      transform: translateX(0px);
+    }
+  }
+
+  .c-button__after {}
+
+  .c-button__before {}
+}
+
+%button-style-normal {
+  @include button-style();
+}
+
+%scroll-down {
+  .c-button__after {
+    @include dec(before) {
+      width: 7.99px;
+      height: 8px;
+      background-color: $color-main;
+      mask-image: url(../images/common/icon-arrow-down.webp);
+      mask-size: cover;
+      @extend %arrow-position-initial;
+    }
+
+    @include dec(after) {
+      width: 7.99px;
+      height: 8px;
+      background-color: white;
+      mask-image: url(../images/common/icon-arrow-down.webp);
+      mask-size: cover;
+      @extend %arrow-decoy-position-initial;
+      transform: translate(-50%, calc(-50% - #{$arrow-circle-height}));
+    }
+  }
+}
+
+%simple-button {
+  padding: 0 0 0 80px;
+}
+
+%white-button {
+  p {
+    color: white;
+  }
+
+  .c-button__before {}
+
+  .c-button__after {}
+}
+
+%mail-button {
+  background: linear-gradient(225deg, #2D6873, #67B39F);
+  height: 80px;
+  border-radius: 40px;
+
+  .c-button {
+    margin-left: -8px;
+
+    p {
+      color: white;
+    }
+
+    &__after {
+      margin-left: 32px;
+    }
+  }
+
+  @include dec(before) {
+    @include size(36.19px, 25px);
+    background-color: white;
+    mask-image: url(../images/common/icon-mail-button.webp);
+    mask-size: cover;
+  }
+}
+
+%main-button {
+  background-color: $color-main;
+
+  p {
+    color: white;
+  }
+}
+
+%accent-button {
+  background-color: $color-accent;
+  border: solid 1px $color-accent;
+
+  .c-button__after {
+    @include size(40px);
+    border-radius: 50%;
+    background-color: $color-main;
+    position: absolute;
+    right: 23px;
+    top: 50%;
+
+    @include dec(before) {
+      @include size(17.8px, 12px);
+      background-color: white;
+      mask-size: contain;
+      mask-image: url(../images/common/icon-arrow-right-min.webp);
+      transition: background .3s ease, mask .3s ease;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+%contact-button {
+  width: 100%;
+  max-width: 665px;
+  border-radius: 40px;
+  background-color: $color-accent;
+  transition: transform .3s ease;
+
+  .c-button {
+    color: $color-main;
+    padding: 25px 0;
+  }
+
+  @include pc {
+    padding: 0 res(111px);
+  }
+
+  .c-button__after {
+    background-color: $color-accent;
+    right: 40px;
+  }
+}
+
+// 共通クラススタイル
+.c-button {
+  transition: transform .3s ease;
+
+  &__trigger {
+    .c-button__after {}
+
+    &:hover {
+      @extend %button-hover-normal;
+    }
+
+    &.accent {
+      @extend %accent-button;
+    }
+  }
+
+  &__wrap {
+    @extend %button-style-normal;
+
+    &:hover {
+      @extend %button-hover-normal;
+    }
+
+    p {
+      font-size: 18px;
+      transition: color .3s ease;
+    }
+
+    &.scroll-down {
+      @extend %scroll-down;
+
+      &:hover {
+        @extend %button-hover-scroll-down;
+      }
+    }
+
+    &.simple {
+      @extend %simple-button;
+
+      &:hover {
+        @extend %button-hover-simple;
+      }
+    }
+
+    &.white {
+      @extend %white-button;
+
+      &:hover {
+        @extend %button-hover-white;
+      }
+    }
+
+    &.main {
+      @extend %main-button;
+
+      &:hover {
+        @extend %button-hover-main;
+      }
+    }
+
+    &.mail {
+      @extend %mail-button;
+
+      &:hover {
+        @extend %button-hover-mail;
+      }
+    }
+
+    &.accent {
+      @extend %accent-button;
+
+      &:hover {
+        @extend %button-hover-accent;
+      }
+    }
+
+    &.end {
+      margin: 0 0 0 auto;
+    }
+
+    &.center {
+      margin: 0 auto;
+    }
+
+    &.contact {
+      @extend %contact-button;
+
+      &:hover {
+        @extend %button-hover-contact;
+      }
+    }
+
+    &.return {
+      padding: 0 res(48px) 0 res(40px);
+
+      .c-button {}
+
+      .c-button__before {
+        @extend .c-button__after;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        @include dec(before) {
+          transform: scale(-1, -1) !important;
+        }
+      }
+
+      .c-button__after {
+        display: none;
+      }
+    }
+  }
+
+  &__before {
+    display: none;
+  }
+
+  &__after {
+    @include size-res(120px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-accent;
+    transition: transform .3s ease, filter .3s ease;
+
+    @include dec(before) {
+      @include size-res(24px);
+      background-color: $color-main;
+      mask-image: url(../images/common/icon-arrow-right.webp);
+      mask-size: cover;
+    }
+  }
+}

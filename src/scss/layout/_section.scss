@@ -1,0 +1,54 @@
+.l-section {
+  @include state(fv) {
+    width: 100vw;
+  }
+
+  &__back {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/common/main-back.webp);
+    // mix-blend-mode: multiply;
+    background-size: cover;
+    opacity: .5;
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0;
+  }
+  
+  &__movie {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1000;
+    background-color: $color-body;
+    opacity: .3;
+
+    @include sp {
+      // background-image: url(../images/common/4-gif.gif);
+      background-size: cover;
+    }
+  }
+
+  &__main {
+    opacity: 1;
+  }
+  
+  &__load {
+    width: 100vw;
+    height: 120vh;
+    background-color: $color-body;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000000000;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
+
+  &__body {
+    background-color: $color-body;
+  }
+}

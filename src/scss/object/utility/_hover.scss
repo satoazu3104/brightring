@@ -1,0 +1,12 @@
+.u-hover {
+  @include pc {
+    &__opacity {
+      opacity: 1;
+      transition: opacity .3s;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.p-access {
+  margin-top: 96px;
+  @include sp {
+    margin-top: 80px;
+  }
+  &__wrap {
+    margin-top: 67px;
+    display: grid;
+    gap: 40px;
+    width: 100%;
+    @include sp {
+      margin-top: 48px;
+      gap: 32px;
+    }
+  }
+  
+  &__map {
+    width: 100%;
+    height: 375px;
+    @include sp {
+      margin-top: 8px;
+      height: 240px;
+    }
+  }
+  
+  &__list {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 16px;
+    align-items: flex-start;
+    a {
+      color: $color-black;
+    }
+    .c-text__normal {
+      font-size: 18px;
+      @include sp {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  &__img {
+    &--icon {
+      width: 20px;
+      height: 20px;
+      aspect-ratio: 1/1;
+      background-size: cover;
+      @include state(phone) {
+        background-image: url(../images/common/icon-tel.webp);
+      }
+      @include state(address) {
+        background-image: url(../images/common/icon-map.webp);
+      }
+    }
+  }
+}

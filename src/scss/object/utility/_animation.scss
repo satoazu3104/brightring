@@ -1,0 +1,241 @@
+.u-anim {
+  &__fade-in {
+    opacity: 0;
+
+    &.active {
+      animation: fade-in .6s .4s ease both;
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__scroll-right {
+    opacity: 0;
+    transform: translateX(20px);
+
+    &.active {
+      animation: scroll-right .6s .3s ease both;
+
+      @keyframes scroll-right {
+        0% {
+          transform: translateX(20px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__scroll-left {
+    opacity: 0;
+    transform: translateX(-20px);
+
+    &.active {
+      animation: scroll-left .6s .3s ease both;
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(-20px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__scroll-up {
+    opacity: 0;
+    transform: translateY(20px);
+
+    &.active {
+      animation: scroll-up .6s .3s ease both;
+
+      @keyframes scroll-up {
+        0% {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__scroll-down {
+    opacity: 0;
+    transform: translateY(-20px);
+
+    &.active {
+      animation: scroll-down .6s .3s ease both;
+
+      @keyframes scroll-down {
+        0% {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__skew {
+    opacity: 0;
+    transform: skewY(3deg);
+    transform-origin: left;
+    transition: opacity .6s ease, transform .8s ease;
+
+    &.active {
+      opacity: 1;
+      transform: skewY(0deg);
+    }
+  }
+
+  &__left-under {
+    clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+
+    &.active {
+      animation: left-under .4s ease both;
+
+      @keyframes left-under {
+        0% {
+          clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+        }
+
+        100% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+      }
+    }
+  }
+
+  &__right-top {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+
+    &.active {
+      animation: right-top .4s ease both;
+
+      @keyframes right-top {
+        0% {
+          clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        }
+
+        100% {
+          clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+      }
+    }
+  }
+
+  &__fuwa {
+    transform: translateY(8px);
+    animation: about-main 4s ease-in-out infinite;
+
+    @keyframes about-main {
+      0% {
+        transform: translateY(4px);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+
+      100% {
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  &__first {
+    background-color: white;
+    opacity: 1;
+    position: fixed;
+    @include size(100vw, 100vh);
+    top: 0;
+    left: 0;
+    z-index: 100000000;
+    pointer-events: none;
+    animation: first 3s ease-in both;
+
+    @keyframes first {
+      0% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    &--icon {
+      @include size-res(249px, 80px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% + res(10px)));
+      opacity: 0;
+      pointer-events: none;
+      animation: first-icon 3s ease both;
+      background-image: url(../images/common/icon-logo-header.webp);
+      background-size: cover;
+
+      @keyframes first-icon {
+        0% {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 0;
+          transform: translate(-50%, calc(-50% + res(24px)));
+        }
+
+        60% {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+
+        80% {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+
+        90% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+    }
+  }
+
+}

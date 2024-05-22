@@ -1,0 +1,375 @@
+$start-header-position: translateY(-152px);
+$logo-height: 64px;
+$header-height: 75px;
+$header-height-sp: 64px;
+
+#wpadminbar {
+  z-index: 100000000;
+  // display: none;
+}
+
+main {
+
+  // margin-top: $header-height;
+  @include sp {
+    // margin-top: $header-height-sp;
+  }
+}
+
+.l-header {
+
+  &__number {
+    @include sp(1425px) {
+      display: none;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    // display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100vw);
+    left: 50%;
+    height: $header-height;
+    gap: 56px;
+    position: fixed;
+    z-index: 100000;
+    transition: background .3s ease, height .3s ease;
+    transform: translateX(-50%);
+    // padding: 0 res(40px) 0 res(40px);
+    top: 35px;
+    transition: transform .3s ease, background .4s ease;
+
+    @include dec(before) {
+      position: absolute;
+      z-index: -10;
+      width: 100vw;
+      height: res(320px);
+      left: 50%;
+      top: -35px;
+      transform: translateX(-50%);
+      background: linear-gradient(to bottom, rgba($color: $color-main, $alpha: 1) 0%, rgba($color: $color-main, $alpha: 1) 50%, rgba($color: $color-main, $alpha: 0) 100%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    @include hover {
+      @include dec(before) {
+        opacity: .8;
+      }
+    }
+
+    &.active,
+    &.is-active {
+
+      @include sp {}
+
+      .l-header__img--logo {}
+
+      .l-header__link[data-slug="recruit"] {}
+    }
+
+    @include sp(1425px) {
+      padding: 0;
+      height: 64px;
+      gap: 24px;
+      top: 0;
+      justify-content: space-between;
+      width: calc(100vw);
+      transform: translate(-50%, 0);
+    }
+
+    &__inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 80px;
+
+      @include sp {
+        justify-content: space-between;
+      }
+    }
+
+    &--logo {
+      position: relative;
+      z-index: 1;
+    }
+
+    &--contact {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    align-items: center;
+    // display: none;
+    display: flex;
+    height: 100%;
+    gap: res(40px);
+    justify-content: flex-end;
+
+    @include sp(1425px) {
+      display: grid;
+      grid-auto-rows: max-content;
+      gap: 24px;
+      width: calc(100vw);
+      height: calc(120vh);
+      border-radius: 0;
+      backdrop-filter: blur(8px);
+      background-color: $color-main;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s ease;
+      padding: 104px 24px;
+      align-items: flex-start;
+
+      &.is-open {
+        opacity: 1;
+        pointer-events: unset;
+      }
+    }
+  }
+
+  &__link {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 12px;
+    grid-template-columns: 100%;
+    height: 100%;
+    // padding: 0 8px;
+    transition: opacity .3s ease;
+
+    @include hover {
+      opacity: .5;
+    }
+
+    &[data-slug="SERVICE"] {
+      // color: white;
+      pointer-events: none;
+    }
+
+    // height: $header-height;
+    @include sp(1425px) {
+      height: $header-height-sp;
+      justify-content: flex-start;
+    }
+  }
+
+  &__list {
+    display: flex;
+    // display: none;
+    gap: res(48px);
+    width: fit-content;
+    height: 100%;
+    z-index: 10;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    @include sp(1425px) {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-auto-rows: max-content;
+      gap: 0px;
+      width: calc(100vw - 48px);
+      background-color: unset;
+      filter: unset;
+      padding: 0;
+      opacity: 1;
+      height: calc(100vh - 128px - 104px);
+      overflow-y: scroll;
+    }
+
+    &--sub {
+      display: grid;
+      grid-template-columns: max-content;
+      gap: res(18px);
+      filter: drop-shadow(0 0 6px rgba($color: black, $alpha: .24));
+      transition: opacity .3s ease, transform .3s ease;
+
+      @include pc {
+        padding: res(24px) res(24px) res(24px) 0;
+        position: absolute;
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        top: calc(100%);
+      }
+
+      @include sp {
+        &:not(.nofix) {
+          gap: 0;
+          grid-template-columns: 100%;
+          justify-content: center;
+        }
+      }
+
+      &.nofix {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: unset;
+        padding: 0;
+        margin-top: res(40px);
+        position: unset;
+
+        @include sp {}
+      }
+    }
+  }
+
+  &__items {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    // transition: opacity .3s ease;
+
+    @include sp {
+      border-bottom: 1px solid white;
+    }
+
+    @include hover {
+      .l-header__list--sub {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: unset;
+      }
+    }
+
+    &.is-active {
+      color: $color-main;
+
+      @include pc {}
+
+      .c-text__normal {}
+
+      @include sp {
+        color: white;
+
+        .c-text__normal {
+          color: white;
+        }
+      }
+    }
+
+    &--sub {
+      display: flex;
+      gap: res(8px);
+      align-items: center;
+
+      @include sp {
+        &:not(.nofix) {
+          gap: 0;
+          border-top: 1px solid white;
+          justify-content: center;
+
+          @include dec(before) {
+            display: none;
+          }
+        }
+      }
+
+      @include dec(before) {
+        width: res(16px);
+        height: 1px;
+        background-color: white;
+      }
+    }
+
+    @include hover {
+      opacity: 1;
+    }
+
+
+    @include sp(1425px) {
+
+      &:nth-child(1) {}
+    }
+  }
+
+  &__button {
+    @include size(64px);
+    position: relative;
+    z-index: 1;
+
+    @include dec(before) {
+      @include size(100%);
+      background-color: $color-main;
+      mask-image: url(../images/common/icon-contact-header.webp);
+      mask-size: cover;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__dec {
+    &--bar {
+      @include size(1px, 26px);
+      background-color: $color-accent;
+      mask-image: url(../images/common/dec-header-line.webp);
+      mask-size: cover;
+
+      &.white {
+        background-color: white;
+      }
+
+      @include sp(1425px) {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    &--tel {
+      @include size-res(269px, 48px);
+      margin-left: 8px;
+    }
+
+    &--logo {
+      @include size(100%);
+
+      &__wrap {
+        @include size-res(128.84px, 160px);
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+
+        @include sp {
+          aspect-ratio: 128.84/160;
+          position: relative;
+          width: auto;
+          height: 48px;
+          display: block;
+        }
+      }
+    }
+  }
+
+
+}
+
+// animation Css
+
+@keyframes headerActive {
+  0% {
+    opacity: 0;
+    transform: $start-header-position;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,126 @@
+.p-faq {
+  &__list {
+    display: grid;
+    gap: 24px;
+
+    @include sp {
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__inner {
+    padding: res(43px) res(136px) res(41px) res(118px);
+    background-color: white;
+    min-height: res(104px);
+    position: relative;
+    z-index: 1;
+
+    @include sp {
+      padding: 32px 40px 32px;
+      min-height: unset;
+    }
+
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 10;
+      @include size-res(48px);
+      border-radius: 50%;
+      background-image: url(../images/common/icon-q.webp);
+      background-size: cover;
+      top: 50%;
+      left: 40px;
+      transform: translateY(-50%);
+
+      @include sp {
+        @include size(32px);
+        left: 6px;
+        top: 25px;
+        transform: unset;
+      }
+    }
+
+    &::after {
+      background-image: url(../images/common/faq-arrow.webp);
+      left: unset;
+      right: 24px;
+      transition: transform .3s ease;
+
+      @include sp {
+        right: 6px;
+        top: 50%;
+        left: unset;
+        transform: translateY(-50%);
+      }
+    }
+
+  }
+
+  &__items {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .4s, transform .6s;
+
+    &.active {
+      opacity: 1;
+    }
+
+    &:hover {
+      &::after {}
+    }
+
+    &.is-active {
+      .p-faq__inner {
+        @include dec(after) {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: res(49px) res(24px) res(44px) res(118px);
+    background-color: $color-main;
+    color: white;
+    display: none;
+    position: relative;
+    z-index: 1;
+
+    @include sp {
+      padding: 25px 40px 23px;
+    }
+
+
+    &.is-open {
+      display: block;
+    }
+
+    &::before,
+    &::after {
+      margin: 0;
+    }
+
+    @include dec(before) {
+      position: absolute;
+      z-index: 10;
+      @include size-res(48px);
+      border-radius: 50%;
+      background-image: url(../images/common/icon-a.webp);
+      background-size: cover;
+      top: res(43px);
+      left: 40px;
+
+      @include sp {
+        left: 6px;
+        top: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@use 'sass:math';
+
+.p-wrap {
+  &__post {
+    // 投稿スタイル
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 120px;
+
+    @include sp {
+      grid-template-columns: 100%;
+      grid-auto-rows: max-content;
+      gap: 48px;
+    }
+
+    &.page {
+      grid-template-columns: 100%;
+      justify-self: center;
+    }
+  }
+
+  &__space-between {
+    display: flex;
+
+    @include pc {
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    @include sp {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &__gray {
+    background-color: $color-back;
+  }
+
+  &__grad {
+    background: linear-gradient(to right, rgba($color: #3295C8, $alpha: 1), rgba($color: #325CC8, $alpha: 1));
+  }
+
+  &__box {
+    &--blur {
+      background-color: rgba($color: white, $alpha: 0);
+      backdrop-filter: brightness(1.05) blur(10px);
+    }
+  }
+
+  &--hidden {
+    overflow: hidden;
+  }
+}
+
+.aioseo-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  // justify-content: flex-end;
+
+  .aioseo-breadcrumb-separator {
+    opacity: .5;
+    // color: white;
+    color: $color-text;
+  }
+
+  .aioseo-breadcrumb {
+    // color: white;
+    color: $color-text;
+
+    @include sp {
+      font-size: 14px;
+    }
+
+    a {
+      opacity: .5;
+      // color: white;
+      color: $color-text;
+    }
+  }
+}
+
+.splide.splide__service.is-initialized:not(.is-active) .splide__list {
+  @include sp {
+    max-width: calc(100vw - 48px);
+    margin: 0 auto !important;
+    display: grid;
+    gap: 32px;
+  }
+}
+
+.splide__works {
+  @include sp {
+    .splide__track {
+      overflow: unset;
+    }
+  }
+}
+
+.splide__track {
+  overflow: unset;
+}
+
+.splide__busi {
+  @include sp {
+    .splide__track {
+      overflow: unset;
+    }
+  }
+}

@@ -1,0 +1,255 @@
+// テキストタイプ
+$font-types:
+(
+  title: 'big-dec',
+  size: 120,
+  sp: 48, 
+  weight: 400, 
+  color: '', 
+  height: 1,
+),
+(
+  title: 'total',
+  size: 75,
+  sp: 48, 
+  weight: 700, 
+  color: '', 
+  height: '',
+),
+(
+  title: 'case',
+  size: 100,
+  sp: 48, 
+  weight: 700, 
+  color: '', 
+  height: '',
+),
+(
+  title: 'med-dec',
+  size: 140,
+  sp: 64, 
+  weight: 200, 
+  color: '', 
+  height: 1.75,
+),
+(
+  title: 'fv-header',
+  size: 32,
+  sp: 18, 
+  weight: 600, 
+  color: '', 
+  height: 1.75,
+  space: 0
+),
+(
+  title: 'fv',
+  size: 80,
+  sp: 32, 
+  weight: 700, 
+  color: '',
+  height: 1.25,
+),
+(
+  title: 'section-title',
+  size: 40,
+  sp: 24, 
+  weight: 400, 
+  color: '',
+  height: 1.2,
+  space: 0,
+),
+(
+  title: 'max',
+  size: 80,
+  sp: 28, 
+  weight: 400, 
+  color: '', 
+  height: 2,
+  space: 40
+),
+(
+  title: 'section-title-jp',
+  size: 20,
+  sp: 18, 
+  weight: 400, 
+  color: '',
+  height: 1.67,
+  space: 0,
+),
+(
+  title: '40-24',
+  size: 40,
+  sp: 24, 
+  weight: 500,
+  color: '', 
+  height: ''
+),
+(
+  title: 'middle',
+  size: 48,
+  sp: 32, 
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'header-title',
+  size: 32,
+  sp: 24, 
+  weight: 400,
+  color: '', 
+  height: ''
+),
+(
+  title: 'phone-number',
+  size: 28,
+  sp: 20, 
+  weight: 500, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'list-title',
+  size: 24,
+  sp: 20, 
+  weight: 500, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'list-content',
+  size: 22,
+  sp: 16, 
+  weight: 500, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'page-title-jp',
+  size: 56,
+  sp: 32, 
+  weight: 600, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'page-title',
+  size: 20,
+  sp: 18, 
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'list-header',
+  size: 18,
+  sp: 14,
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'title',
+  size: 18,
+  sp: 16, 
+  weight: 700, 
+  color: '',
+  height: '',
+),
+(
+  title: 'content',
+  size: 20,
+  sp: 16, 
+  weight: 400, 
+  color: '', 
+  height: 2,
+),
+(
+  title: 'long-height',
+  size: 18,
+  sp: 16, 
+  weight: 400, 
+  color: '', 
+  height: 2.5,
+),
+(
+  title: 'title-reg',
+  size: 18,
+  sp: 14, 
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'nav',
+  size: 16,
+  sp: 14, 
+  weight: 700, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'nav-jp',
+  size: 16,
+  sp: 16, 
+  weight: 700, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'normal-min',
+  size: 16,
+  sp: 12, 
+  weight: 400, 
+  color: '', 
+  height: '', 
+),
+(
+  title: 'normal',
+  size: 16,
+  sp: 14, 
+  weight: 400, 
+  color: '', 
+  height: '', 
+),
+(
+  title: 'normal-min',
+  size: 16,
+  sp: 14, 
+  weight: 400, 
+  color: '', 
+  height: 1.75, 
+),
+(
+  title: 'bold',
+  size: 16,
+  sp: 16, 
+  weight: 700, 
+  color: '', 
+  height: 1.875
+),
+(
+  title: '15',
+  size: 15,
+  sp: 15, 
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'med',
+  size: 14,
+  sp: 14, 
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(
+  title: 'min',
+  size: 12,
+  sp: 12, 
+  weight: 400, 
+  color: '', 
+  height: ''
+),
+(title: 'text', size: 44, sp: 20, weight: bold, color: white, height: '');

@@ -1,0 +1,66 @@
+.l-page {
+  &__wrap {
+    width: 100%;
+    height: res(721px);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include sp {
+      height: 240px;
+    }
+
+    &.min {
+      @include pc {
+        height: res(554px);
+        padding-top: res(167px);
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+
+    @include pc {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: flex-end;
+    }
+  }
+
+  &__img {
+    &--title {
+      &__picture {
+        @include size-res(1125px, 394px);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -10;
+
+        @include sp {
+          aspect-ratio: 1125/394;
+          height: auto;
+          width: calc(100% - 48px);
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(calc(-50% - 76px));
+        }
+      }
+    }
+
+    &--main {
+      @include size(100%);
+
+      &__picture {
+        @include size(100%);
+        position: absolute;
+        z-index: -10;
+        opacity: .7;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+%nami {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 98.95px;
+  mask-image: url(../images/fv/dec-bottom.webp);
+  mask-position: center;
+  mask-repeat: repeat-x;
+  mask-size: 1920px 98.95px;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+}

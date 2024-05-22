@@ -1,0 +1,160 @@
+.l-footer {
+  &__box {
+    margin-top: res(200px);
+    padding-bottom: 80px;
+
+    @include sp {
+      margin-top: 80px;
+    }
+  }
+
+  &__wrap {
+    &--top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: res(80px);
+      margin-top: res(120px);
+      margin-bottom: res(81px);
+
+      @include sp {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 48px;
+      }
+    }
+
+    &--bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__banner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: res(48px);
+
+    @include sp {
+      grid-template-columns: 100%;
+      gap: 12px;
+    }
+
+    .p-busi__items {
+      &:nth-child(even) {
+        top: unset;
+      }
+    }
+  }
+
+  &__img {
+    &--logo {
+      @include size-res(128.84px, 160px);
+
+      @include sp {
+        margin: 0 auto;
+      }
+    }
+  }
+
+}
+
+// 固定
+.l-footer {
+  &__information {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: res(40px);
+      opacity: .5;
+
+      @include sp {
+        grid-template-columns: 100%;
+        margin-bottom: 40px;
+        gap: 16px;
+      }
+    }
+  }
+
+  &__menu {
+    &--list {
+      gap: res(12px) res(80px);
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      @include sp {
+        gap: 48px 24px;
+      }
+    }
+
+    &--items {
+      opacity: 1;
+      transition: opacity .3s ease;
+
+      @include hover {
+        // opacity: .5;
+      }
+
+      @include sp(1425px) {
+        .l-header__link {
+          height: fit-content;
+        }
+
+        border-bottom: unset;
+        height: fit-content;
+
+        &:nth-child(1) {
+          border-top: unset;
+        }
+      }
+
+      @include sp {
+        border-bottom: unset;
+      }
+
+    }
+
+    &--nav {}
+  }
+
+  &__fix {
+    width: 100vw;
+    height: 64px;
+    position: fixed;
+    z-index: 100000000000;
+    overflow: hidden;
+    bottom: 0px;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    transition: transform .4s ease;
+    transform: translateY(64px);
+
+    &--img {
+      @include size(24px);
+    }
+
+    &.active {
+      transform: translateY(0px);
+    }
+
+    &--inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      background-color: $color-text;
+      justify-content: center;
+      gap: 8px;
+
+      @include state(line) {
+        background-color: $color-main;
+        border: unset;
+      }
+
+    }
+  }
+}

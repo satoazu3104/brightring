@@ -1,0 +1,55 @@
+.p-img {
+  &__title {
+    &--about {
+      @include size(100%);
+
+      &__picture {
+        @include max-size-res(782.33px, 198.97px);
+        position: relative;
+        z-index: 1;
+        transform: translateX(res(-22px));
+      }
+    }
+
+    &--busi {
+      @include size(100%);
+
+      &__picture {
+        @include max-size-res(725.49px, 274.48px);
+      }
+    }
+
+    &--repair {
+      @include size(100%);
+
+      &__picture {
+        @include max-size-res(552.48px, 188.23px);
+        transform: translateX(res(-15px));
+      }
+    }
+
+    &--recruit {
+      @include size(100%);
+
+      &__picture {
+        @include max-size-res(921.27px, 642px);
+      }
+    }
+    
+    &--spirits {
+      @include size(100%);
+
+      &__picture {
+        @include max-size-res(397.42px, 109.37px);
+      }
+    }
+
+    &--pro {
+      @include size(100%);
+
+      &__picture {
+        @include max-size-res(1082.68px, 180.68px);
+      }
+    }
+  }
+}

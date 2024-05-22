@@ -1,0 +1,104 @@
+@use 'sass:math';
+.l-grid {
+
+  // display: grid;
+  // @include pc {
+  //   grid-template-columns: repeat(12, $column);
+  //   gap: $gap;
+  //   max-width: $max-width;
+  // }
+
+
+  // @each $grid in $grid-lists {
+  //   $left: $grid + 1;
+  //   $right: 13 - $grid;
+  //   &--#{$grid} {
+  //     @include pc {
+  //       grid-column: #{$min}/#{$left};
+  //       @include state(right) {
+  //         grid-column: #{$right}/#{$max};
+  //       }
+  //     }
+  //   }
+  // }
+
+  // &__wrap {
+  //   @each $grid in $grid-lists {
+  //     &--#{$grid} {
+  //       display: grid;
+  //       @include pc {
+  //         @include state('right') {
+  //           max-width: math.div(($max-width - 32 * 11), 12) * $grid + ($grid - 1) * 32;
+  //           width: 100%;
+  //           grid-template-columns: repeat($grid, $column);
+  //           gap: $gap;
+  //           @each $inner-grid in $grid-lists {
+  //             .l-grid--#{$inner-grid} {
+  //               grid-column: #{$min}/#{$inner-grid + 1};
+  //               @include state('right') {
+  //                 grid-column: #{($grid + 1) - $inner-grid}/#{$grid + 1};
+  //               }
+  //             }
+  //           }
+  //         }
+  //         @include state('left') {
+  //           max-width: math.div(($max-width - 32 * 11), 12) * $grid + ($grid - 1) * 32;
+  //           width: 100%;
+  //           grid-template-columns: repeat($grid, $column);
+  //           gap: $gap;
+  //           @each $inner-grid in $grid-lists {
+  //             .l-grid--#{$inner-grid} {
+  //               grid-column: #{$min}/#{$inner-grid + 1};
+  //               @include state('right') {
+  //                 grid-column: #{($grid + 1) - $inner-grid}/#{$grid + 1};
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+
+  //       @include sp {
+  //         width: calc(100vw - $sp-space);
+  //         @include state('right') {
+  //           padding-left: 16px;
+  //           width: calc(100vw - 16px);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // &__column {
+  //   display: flex;
+  //   gap: $gap;
+  //   @include sp {
+  //     display: grid;
+  //   }
+  // }
+
+  // &__height {
+
+  //   &--max {
+  //     grid-auto-rows: max-content;
+  //   }
+  // }
+
+  // &--position {
+  //   position: relative;
+  // }
+
+  // &__align {
+    
+  //   &--bottom {
+  //     display: flex;
+  //     align-items: flex-end;
+  //   }
+
+  //   &--between {
+  //     display: flex;
+  //     justify-content: space-between;
+  //   }
+  // }
+
+  
+}

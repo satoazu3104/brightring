@@ -1,0 +1,220 @@
+$sp-space: 48px;
+@use 'sass:math';
+
+.l-row {
+  width: calc(100% - $sp-space);
+  max-width: res($max-width);
+  margin: 0 auto;
+
+  @include sp() {
+    max-width: $max-width-middle;
+    width: calc(100% - $sp-space);
+  }
+
+  &--hidden {
+    overflow: hidden;
+
+    &__visible {
+      overflow: visible;
+    }
+  }
+
+
+  &--max-left {
+    width: calc(100vw - 80px);
+    margin-left: auto;
+
+    @include sp {
+      width: calc(100vw - 12px);
+    }
+  }
+
+  &--inner {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &--inner-right {
+    @include sp {
+      padding-right: math.div($sp-space, 2);
+    }
+  }
+
+  &--inner-left {
+    @include sp {
+      padding-left: math.div($sp-space, 2);
+    }
+  }
+
+  &--pc {
+
+    @include sp {
+      width: 100vw;
+    }
+  }
+
+  @include state(banner) {
+    max-width: 882px;
+  }
+
+  &__br {
+    @include sp {
+      &::before {
+        content: '\A';
+        display: inline;
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  @include state(right) {
+    width: 100vw;
+    max-width: unset;
+    margin: 0 0 0 auto;
+    padding-left: max(calc((100vw - res($max-width)) / 2), 24px);
+
+    @include sp {
+      padding-left: max(calc((100vw - $max-width) / 2), 24px);
+    }
+  }
+
+  @include state(right-sp-all) {
+    width: 100vw;
+    max-width: unset;
+    margin: 0 0 0 auto;
+    padding-left: max(calc((100vw - $max-width) / 2), 24px);
+
+    @include sp {
+      padding-left: 0;
+    }
+  }
+
+  @include state(right-sp) {
+    @include sp {
+      width: 100vw;
+      max-width: unset;
+      margin: 0 0 0 auto;
+      padding-left: max(calc((100vw - $max-width) / 2), 24px);
+    }
+  }
+
+  &__right {
+    width: 100%;
+  }
+
+  @include state(right-sp-min) {
+    max-width: 800px;
+
+    @include sp {
+      width: 100vw;
+      max-width: unset;
+      margin: 0 0 0 auto;
+      padding-left: max(calc((100vw - $max-width) / 2), 24px);
+    }
+  }
+
+  @include state(left) {
+    width: 100vw;
+    max-width: unset;
+    margin: 0 0 0 auto;
+    padding-right: max(calc((100vw - res($max-width)) / 2), 24px);
+
+    @include sp {
+      padding-right: max(calc((100vw - $max-width) / 2), 24px);
+    }
+  }
+
+  @include state(left-sp) {
+    @include sp {
+      width: 100vw;
+      max-width: unset;
+      margin: 0 0 0 auto;
+      padding-right: max(calc((100vw - $max-width) / 2), 24px);
+    }
+  }
+
+  @include state(big) {
+    max-width: $max-width-big;
+    width: calc(100% - $sp-space - vw(96));
+
+    @include sp {
+      width: calc(100% - $sp-space);
+    }
+  }
+
+  @include state(max) {
+    max-width: $max-width-max;
+    width: calc(100% - $sp-space);
+
+    @include sp {
+      width: calc(100% - $sp-space);
+    }
+  }
+
+  @include state(middle) {
+    max-width: res($max-width-middle);
+
+    @include sp {
+      width: calc(100% - $sp-space);
+    }
+  }
+
+  @include state(med) {
+    max-width: 940px;
+
+    @include sp {
+      width: calc(100% - $sp-space);
+    }
+  }
+
+  @include state(min) {
+    max-width: 800px;
+  }
+
+  &--min {
+    max-width: 720px;
+  }
+
+  &--mid {
+    max-width: 1184px;
+    margin: 0 auto;
+  }
+
+  &--normal {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &--xmin {
+    max-width: 740px;
+    margin: 0 auto;
+
+    @include state('type2') {
+      max-width: 760px;
+    }
+  }
+
+  &--small {
+    max-width: 640px;
+  }
+
+  &--scroll {
+    overflow-x: scroll;
+  }
+
+  &__double {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 100px;
+    max-width: $max-width;
+    margin: 0 auto;
+    width: calc(100vw - 160px);
+
+    @include sp(1120px) {
+      grid-template-columns: 100%;
+      width: calc(100vw - $sp-space);
+      gap: 60px;
+    }
+  }
+}

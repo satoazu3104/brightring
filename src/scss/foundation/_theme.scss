@@ -1,0 +1,50 @@
+// Design Rules
+
+/* ==========================================================================
+  Color
+   ========================================================================== */
+$color-main: #021E45;
+$color-main2: #00429E;
+$color-dark: #021E45;
+$color-black: #021E45;
+$color-text: #021E45;
+$color-accent: #31EFA8;
+$color-accent2: #8DB6BC;
+$color-white2: #DDE3F1;
+$color-back-base: #EDEFF5;
+$color-body: #021E45;
+$color-back: #E0E0E0;
+$color-back-grad: transparent linear-gradient(92deg, #005ED9 0%, #00A7E6 100%) 0% 0% no-repeat padding-box;;
+$color-border: rgba($color: black, $alpha: .1); 
+$color-border2: rgba($color: black, $alpha: .1); 
+$color-gray: #BFBFBF;
+
+/* ==========================================================================
+  Text
+   ========================================================================== */
+$font-family-en: 'Roboto', sans-serif;
+$font-family-en2: 'Roboto', sans-serif;
+$font-family-jp2: 'Murecho', sans-serif;
+@import "./theme-text";
+
+/* ==========================================================================
+  Grid Desing
+   ========================================================================== */
+$max-width: 1500px;
+$max-width-big: 1760px;
+$max-width-max: 1592px;
+$max-width-middle: 1125px;
+$gap: 32px;
+$grid-lists: (3, 4, 6, 7, 8, 9);
+$column: 54px;
+$min: 1;
+$max: 13;
+
+/* ==========================================================================
+  Header Style
+   ========================================================================== */
+$header-height-pc: 85px;
+$header-height-sp: 64px;
+$header-padding-pc: 0 0px 0 32px;
+$header-padding-sp: 0 0px 0 24px;
+$header-active-color: $color-body;
