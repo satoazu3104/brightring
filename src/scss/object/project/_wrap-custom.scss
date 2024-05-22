@@ -735,6 +735,11 @@
         @include max-size-res(1024.56px, 668px);
         left: res(-100px);
         top: 0;
+        
+        @include sp {
+          left: unset;
+          right: res(-100px);
+        }
       }
     }
 
