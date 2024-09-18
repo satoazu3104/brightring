@@ -81,7 +81,7 @@ function display_information($phone_number)
 {
   $info_list = [
     ['icon' => '', 'text' => '本社 : 〒689-3543<br class="pc"><span>　</span>鳥取県米子市蚊屋316-13'],
-    ['icon' => '', 'text' => '長海工場 : 〒690-1112<br class="pc"><span>　</span>島根県松江市長海町624番2'],
+    ['icon' => '', 'text' => '長海工場 : 〒683-0201<br class="pc"><span>　</span>鳥取県西伯郡南部町天萬906-5'],
     ['icon' => '', 'text' => 'TEL : 090-1682-5652<br class="pc"><span> / </span>FAX : 0859-27-3039'],
   ];
   echo '<div class="l-footer__information__list">';
